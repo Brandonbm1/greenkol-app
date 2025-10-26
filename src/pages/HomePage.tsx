@@ -45,8 +45,8 @@ export const HomePage = () => {
         </header>
         <main>
           <section className="homeInfo-reasons">
-            {REASONS.map((reason) => (
-              <article className="homeInfo-reason">
+            {REASONS.map((reason, index) => (
+              <article className="homeInfo-reason" key={`reason-${index}`}>
                 <span className="icon">{reason.icon}</span>
                 <p>{reason.title}</p>
                 <span>{reason.description}</span>
@@ -59,7 +59,7 @@ export const HomePage = () => {
             </header>
             <main>
               {HomeInfo.projects.slice(0, 3).map((project) => (
-                <ProjectCard project={project} />
+                <ProjectCard project={project} key={project.id} />
               ))}
             </main>
           </section>
