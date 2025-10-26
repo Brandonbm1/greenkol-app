@@ -1,0 +1,24 @@
+@import url("./_variables.css");
+
+.projectCard {
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    overflow: hidden;
+    border-radius: 1rem;
+    border: var(--card-border);
+    img {
+        height: 150px;
+        object-fit: cover;
+    }
+    > section {
+        padding: .5rem 1rem;
+        h6 {
+            font-size: .9rem;
+        }
+        span {
+            font-size: 0.7rem;
+            line-height: 1;
+        }
+    }
+}

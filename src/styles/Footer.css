@@ -1,0 +1,35 @@
+@import url("../styles/_variables.css");
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1.5rem 1rem;
+    background-color: var(--color-footer);
+    margin-top: auto;
+    gap: .5rem;
+    > section {
+        width: 100%;
+        max-width: 1084px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        > article {
+            flex-basis: 300px;
+        }
+        h5 {
+            font-size: 1.1rem;
+        }
+        .branchName {
+            color: var(--color-primary)
+        }
+        span, li, a {
+            font-size: .9rem;
+        }
+    }
+    > :last-child{
+        border-top: var(--card-border);
+        justify-content: center;
+        padding-top: .5rem;
+    }
+}

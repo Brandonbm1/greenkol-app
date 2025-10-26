@@ -1,0 +1,21 @@
+@import url('../styles/_variables.css');
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    max-width: 1410px;
+    margin: 0 auto;
+    justify-content: space-between;
+    width: 100%;
+    .navbar-container {
+        display: flex;
+        gap: 1.5rem;
+        > a.active-link {
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+    }
+    .navbar-image {
+        height: 48px;
+    }
+}
