@@ -1,4 +1,4 @@
-import HeroImage from '../../assets/HeroImage.png'
+import HeroImage from '/HeroImage.png'
 
 export const HomeInfo = {
     heroImage: HeroImage,

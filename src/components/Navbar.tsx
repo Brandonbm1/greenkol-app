@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import GreenKolLogo from "../assets/greenKolLogo.png";
+import GreenKolLogo from "/greenKolLogo.png";
 import "../styles/Navbar.css";
 
 export const Navbar = () => {
