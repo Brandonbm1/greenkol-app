@@ -1,26 +1,21 @@
 .render {
-    min-height: 100dvh;
-    width: 100dvw;
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .blur {
-    height: 100dvh;
-    width: 100dvw;
-    position: absolute;
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.621);
+  height: 100dvh;
+  width: 100dvw;
+  position: absolute;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.621);
 }
 
 .canvas {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 60dvw !important;
-    height: 80dvh !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
 }

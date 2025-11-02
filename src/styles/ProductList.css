@@ -1,0 +1,119 @@
+@import url("./_variables.css");
+
+.productList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+}
+
+/* ---------- HEADER ---------- */
+.productList header {
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+.productList header a {
+  gap: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.productList header p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: var(--color-text-primary);
+}
+
+/* ---------- MASONRY LAYOUT ---------- */
+.productListContainer {
+  column-count: 2;
+  column-gap: 1.5rem;
+  width: 100%;
+}
+
+@media (max-width: 800px) {
+  .productListContainer {
+    column-count: 1;
+  }
+}
+
+/* ---------- PRODUCT CARD ---------- */
+.product {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  background-color: var(--color-surface);
+  position: relative;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.product:hover {
+  transform: translateY(-3px);
+}
+
+/* ---------- PRODUCT IMAGE ---------- */
+.product img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* ---------- TAGS ---------- */
+.tags {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  z-index: 2;
+}
+
+.tags span {
+  background-color: var(--color-primary-50);
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 20px;
+  backdrop-filter: blur(2px);
+  text-transform: capitalize;
+  &:hover{
+    background-color: var(--color-primary);
+  }
+}
+
+/* ---------- PRODUCT NAME ---------- */
+.product p {
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.8rem 1rem 1rem;
+  color: var(--color-text-primary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+
+
+.productListContainer-empty {
+  display: flex;
+  justify-content: center;
+  min-height: 30dvh;
+  padding: 4rem 0;
+  h4 {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+  b {
+    text-transform: capitalize;
+  }
+}

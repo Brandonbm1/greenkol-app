@@ -1,0 +1,103 @@
+@import url('./_variables.css');
+.product-detail {
+    display: flex;
+    flex-direction: column;
+    color: var(--color-text);
+    position: relative;
+    > header {
+        display: flex;
+        align-items: center;
+        padding: .5rem 0;
+        /* position: sticky; */
+        /* top: 0; */
+        /* z-index: 100; */
+        background-color: var(--color-background);
+        p {
+            text-align: center;
+            font-size: 2rem;
+            flex: 1;
+            font-weight: 600;
+        }
+    }
+}
+.product-info-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    > header{
+        padding-top: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        small {
+            font-size: 1rem;
+        }
+    }
+    .product-info-features {
+        display: flex;
+        gap: .5rem;
+        flex-wrap: wrap;
+        .product-feature {
+            flex: 1;
+            border: 1px solid #0000001a;
+            padding: 1rem 1.5rem;
+            border-radius: .5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: .75rem;
+            .product-feature-icon {
+                font-size: 1.5rem;
+                color: var(--color-primary);
+            }
+            .product-feature-text {
+                text-align: center;
+                text-wrap: balance;
+            }
+        }
+    }
+}
+
+.product-deatils {
+    > header {
+        display: flex;
+        gap: 1.5rem;
+        border-bottom: 2px solid #0000001a;
+        button {
+            height: 100%;
+            padding: 1rem 0;
+            border-bottom: 2px solid transparent;
+            font-size: .9rem;
+            &.active {
+                color: var(--color-primary);
+                border-bottom-color: var(--color-primary);
+                font-weight: 600;
+            }
+            
+        }
+
+    }
+    > main {
+        margin-bottom: 4rem;
+        > section {
+            padding: 1.5rem 0;
+            display: flex;
+            gap: 4rem;
+            > aside {
+                display: flex;
+                flex-direction: column;
+                gap: .5rem;
+                &:last-child{
+                    border-left:1px solid #0000001a;
+                    padding-left: 1rem;
+                }
+
+            }
+        }
+    }
+}

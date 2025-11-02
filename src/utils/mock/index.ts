@@ -1,1 +1,2 @@
-export * from "./HomeInfo"
+export * from "./HomeInfoMock"
+export * from "./ProductCategoriesMock"
