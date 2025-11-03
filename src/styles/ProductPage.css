@@ -8,9 +8,6 @@
         display: flex;
         align-items: center;
         padding: .5rem 0;
-        /* position: sticky; */
-        /* top: 0; */
-        /* z-index: 100; */
         background-color: var(--color-background);
         p {
             text-align: center;

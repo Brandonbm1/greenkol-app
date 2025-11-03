@@ -1,4 +1,4 @@
-@import url("../styles/_variables.css");
+@import url("./_variables.css");
 
 .footer {
     display: flex;
