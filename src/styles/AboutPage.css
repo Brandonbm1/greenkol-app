@@ -1,0 +1,106 @@
+@import url("./_variables.css");
+
+.aboutPage {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  > header {
+    position: relative;
+    overflow: hidden;
+    margin: 0 -1rem;
+    > div {
+      position: absolute;
+      background: #fff;
+      background: linear-gradient(180deg, #ffffff00 0%, #00000082 100%);
+      height: 100%;
+      width: 100%;
+      z-index: 10;
+    }
+
+    > img {
+      height: 100%;
+      min-height: 30dvh;
+      object-fit: cover;
+    }
+    > h3 {
+      position: absolute;
+      bottom: 1.2rem;
+      left: 1.2rem;
+      font-size: 1.5rem;
+      color: #fff;
+      font-weight: 600;
+      z-index: 20;
+    }
+  }
+  > main {
+    padding: 1rem 1rem;
+    color: var(--color-text);
+    > article {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1.5rem;
+      border-bottom: var(--card-border);
+      &:first-child {
+        padding-top: 0;
+      }
+      &:last-child {
+        border: none;
+      }
+      h5 {
+        font-size: 1.5rem;
+        color: var(--color-primary);
+      }
+      > section.values {
+        display: flex;
+        flex-direction: row;
+        gap: 3rem 2rem;
+        padding-top: 1rem;
+        flex-wrap: wrap;
+        > div {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+          flex-grow: 1;
+          flex-shrink: 1;
+          flex-basis: 250px;
+          > p {
+            font-size: 1.1rem;
+            font-weight: 600;
+          }
+          > span {
+            text-align: center;
+            text-wrap: balance;
+          }
+          .icon-container {
+            padding: 1rem;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            background-color: #ccc;
+            flex-basis: auto;
+          }
+        }
+      }
+      > div {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+  > footer {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 4rem;
+    > a {
+      padding: 0.75rem 1.5rem;
+      background-color: var(--color-primary);
+      color: white;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      &:hover {
+        filter: brightness(1.1);
+      }
+    }
+  }
+}
