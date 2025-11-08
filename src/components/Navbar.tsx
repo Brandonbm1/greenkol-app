@@ -8,7 +8,9 @@ export const Navbar = () => {
 
   return (
     <header className="navbar">
-      <img src={GreenKolLogo} className="navbar-image" alt="GreenKol Logo" />
+      <Link to="/">
+        <img src={GreenKolLogo} className="navbar-image" alt="GreenKol Logo" />
+      </Link>
 
       <button
         className={`burger ${menuOpen ? "open" : ""}`}
