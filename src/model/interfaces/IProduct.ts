@@ -22,5 +22,5 @@ export interface IProduct {
         },
         weight: number
     }
-    tags?: string[]
+    tags?: {tag: string, id: string}[]
 }
