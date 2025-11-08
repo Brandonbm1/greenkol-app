@@ -7,10 +7,12 @@ export const ImageCarrousel = ({
   name,
   autoMove = false,
   handleOpenModal,
+  viewTransitionName,
 }: {
   images: IImage[];
   name: string;
   autoMove?: boolean;
+  viewTransitionName?: string;
   handleOpenModal?: () => void;
 }) => {
   const CARROUSEL_ID = "carrousel";
@@ -61,9 +63,7 @@ export const ImageCarrousel = ({
     if (ratio > 1 - edgePercent && activeImageIndex < images.length - 1) {
       return handleNext();
     }
-    // if (handleOpenModal) {
     return handleOpenModal && handleOpenModal();
-    // }
   };
   return (
     <div
@@ -83,12 +83,12 @@ export const ImageCarrousel = ({
             url={image.url || image.image.url}
             alt={name + "-" + index}
             key={"image-" + index}
+            viewTransitionName={viewTransitionName ? viewTransitionName : ""}
           />
         ))}
       </div>
       <button
         className="carrousel-image-container-control"
-        // onClick={handlePrev}
         style={{
           left: 0,
           cursor: activeImageIndex > 0 ? "pointer" : "default",
@@ -97,7 +97,6 @@ export const ImageCarrousel = ({
       />
       <button
         className="carrousel-image-container-control"
-        // onClick={handleNext}
         style={{
           right: 0,
           cursor: activeImageIndex < images.length - 1 ? "pointer" : "default",
