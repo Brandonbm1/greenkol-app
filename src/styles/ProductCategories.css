@@ -13,6 +13,8 @@
     height: 30dvh;
     cursor: auto;
     pointer-events: none;
+    border-radius: 0;
+    margin: 0 -1rem;
     img {
       height: 100%;
     }
@@ -41,8 +43,8 @@
     top: 0;
     left: 0;
     z-index: 10;
-    background: #fff;
-    background: linear-gradient(180deg, #ffffff00 0%, #0d0d0d60 100%);
+    background: #ffffff00;
+    background: linear-gradient(180deg, #ffffff00 0%, #0d0d0d9f 100%);
     height: 100%;
     width: 100%;
   }

@@ -41,6 +41,7 @@ export const ProductPage = () => {
             name={product.name}
             autoMove={true}
             handleOpenModal={() => setImageModalOpenned(true)}
+            viewTransitionName={`product-image-${product.id}`}
           />
         </article>
         <article className="product-info-details">

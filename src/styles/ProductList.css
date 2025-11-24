@@ -11,10 +11,43 @@
 .productList header {
   padding: 1rem 0;
   position: sticky;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
   top: 0;
   z-index: 10;
   color: var(--color-text);
   background-color: var(--color-background);
+}
+.productList header > label {
+  position: relative;
+  background-color: white;
+  border: var(--card-border);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0 2px #0000002f;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 200px;
+  svg {
+    position: absolute;
+    right: 1rem;
+    font-size: 1.25rem;
+  }
+
+  &:has(input:hover),
+  &:has(input:focus),
+  &:has(input:active) {
+    box-shadow: 0 0 0 2px var(--color-primary-50);
+  }
+}
+.productList header > label input {
+  padding: 0.5rem 2.5rem 0.5rem 1rem;
+  border: none;
+  outline: none;
+  width: 100%;
 }
 .productList header a {
   gap: 1rem;
@@ -31,21 +64,21 @@
 
 /* ---------- MASONRY LAYOUT ---------- */
 .productListContainer {
-  column-count: 2;
-  column-gap: 1.5rem;
+  /* column-count: 2; */
+  /* column-gap: 1.5rem; */
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: space-between;
+  gap: 1.5rem;
   width: 100%;
-}
-
-@media (max-width: 800px) {
-  .productListContainer {
-    column-count: 1;
-  }
 }
 
 /* ---------- PRODUCT CARD ---------- */
 .product {
   display: inline-block;
   width: 100%;
+  /* max-width: 600px; */
+  flex: 1 0 400px;
   margin-bottom: 1.5rem;
   overflow: hidden;
   background-color: var(--color-surface);
@@ -87,7 +120,7 @@
   border-radius: 20px;
   backdrop-filter: blur(2px);
   text-transform: capitalize;
-  &:hover{
+  &:hover {
     background-color: var(--color-primary);
   }
 }
@@ -102,8 +135,6 @@
   line-height: 1.4;
 }
 
-
-
 .productListContainer-empty {
   display: flex;
   justify-content: center;
@@ -115,5 +146,18 @@
   }
   b {
     text-transform: capitalize;
+  }
+}
+
+
+@media (max-width: 800px) {
+  .productList header {
+    flex-direction: column;
+  }
+  .productList header > label {
+    flex-basis: content;
+  }
+  .product {
+    flex-basis: 200px;
   }
 }

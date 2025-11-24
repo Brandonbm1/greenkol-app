@@ -7,8 +7,8 @@ export const getProducts = async () => {
   return { response, meta: { ...rest } };
 };
 
-export const getProductsByCategory = async (categorieSlug: string) => {
-  const { docs, ...rest } = await GET(`api/products/by-slug/${categorieSlug}`);
+export const getProductsByCategory = async (categorieSlug: string, search: string = "", page = 1) => {
+  const { docs, ...rest } = await GET(`api/products/by-slug/${categorieSlug}?name=${search}&page=${page}`);
   const response: IProduct[] = docs;
   return { response, meta: { ...rest } };
 };

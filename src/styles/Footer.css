@@ -14,6 +14,7 @@
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+        gap: 2rem 0;
         > article {
             flex-basis: 300px;
         }

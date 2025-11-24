@@ -11,7 +11,6 @@ export const ProductsCategoriesPage = () => {
   const [categories, setCategories] = useState<ICategorie[]>();
   const handleGetCategories = async () => {
     const { response } = await getCategories();
-    console.log(response);
     setCategories(response);
   };
   useEffect(() => {
@@ -44,6 +43,7 @@ const CategoriesComponent = ({ categorie }: { categorie: ICategorie }) => {
     >
       <Image url={categorie.image.url} alt={categorie.image.alt || ""} />
       <span>{categorie.title}</span>
+      <div />
     </article>
   );
 };

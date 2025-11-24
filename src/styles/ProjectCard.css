@@ -7,6 +7,9 @@
     overflow: hidden;
     border-radius: 1rem;
     border: var(--card-border);
+    cursor: pointer;
+    transition: transform .3s ease;
+    max-width: 500px;
     img {
         height: 150px;
         object-fit: cover;
@@ -20,5 +23,9 @@
             font-size: 0.7rem;
             line-height: 1;
         }
+    }
+    &:hover {
+        transform: scale(1.025);
+        box-shadow: 2px 2px 4px #00000050;
     }
 }

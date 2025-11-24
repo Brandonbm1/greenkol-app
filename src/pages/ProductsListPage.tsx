@@ -11,15 +11,18 @@ export const ProductListPage = () => {
   const { slug } = useParams({ from: "/products/$slug" });
   const formatTitle = (text: string) => text.split("-").join(" ");
   const [products, setProducts] = useState<IProduct[]>();
-  const [metaData, setMetaData] = useState();
+  // const [metaData, setMetaData] = useState();
   const [loading, setLoading] = useState(false);
 
   const handleGetProducts = async (categorySlug: string) => {
     setLoading(true);
     try {
-      const { response, meta } = await getProductsByCategory(categorySlug);
+      const { 
+        response, 
+        // meta 
+      } = await getProductsByCategory(categorySlug);
       setProducts(response);
-      setMetaData(meta);
+      // setMetaData(meta);
     } catch (error) {
       console.error(error);
     } finally {

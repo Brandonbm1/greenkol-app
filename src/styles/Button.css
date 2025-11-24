@@ -4,12 +4,24 @@
     outline: none;
     border-radius: .4rem;
     font-weight: 600;
+    border: 2px solid;
+    transition: background .3s ease;
     &.primary {
         background-color: green;
-        color: white
+        color: white;
+        border-color: green;
+        &:hover {
+            background-color: white;
+            color: green;
+        }
     }
     &.secondary {
         background-color: white;
         color: black;
+        border-color: white;
+        &:hover {
+            background-color: black;
+            color: white;
+        }
     }
 }
