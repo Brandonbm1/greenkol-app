@@ -1,15 +1,27 @@
 import "../styles/Home.css";
 import { Hero } from "../components/Hero";
-import { HomeInfo } from "../utils/mock/index";
 import { TbTool } from "react-icons/tb";
 import { RiLeafLine } from "react-icons/ri";
 import { FiShield } from "react-icons/fi";
 import { ProjectCard } from "../components/ProjectCard";
 import { Button } from "../components/Buttons";
 import { useAppNavigate } from "../hooks/useAppNavigate";
+import { useEffect, useState } from "react";
+import { getProjectsHomeScreen } from "../services/ProjectServices";
+import type { IProject } from "../model/interfaces/IProject";
+import HeroImage from '/HeroImage.png'
 
 export const HomePage = () => {
   const { goTo } = useAppNavigate();
+  const [projects, setProjects] = useState<IProject[] | []>([]);
+  const handleGetProjects = async () => {
+    const { response } = await getProjectsHomeScreen();
+    setProjects(response);
+  };
+
+  useEffect(() => {
+    handleGetProjects();
+  }, []);
   const REASONS = [
     {
       icon: <RiLeafLine />,
@@ -32,7 +44,7 @@ export const HomePage = () => {
   ];
   return (
     <>
-      <Hero image={HomeInfo.heroImage} />
+      <Hero image={HeroImage} />
       <section className="homeInfo">
         <header className="homeInfo-whyUs">
           <h4>¿Por qué elegirnos?</h4>
@@ -58,17 +70,28 @@ export const HomePage = () => {
               <h3>Nuestros Proyectos</h3>
             </header>
             <main>
-              {HomeInfo.projects.slice(0, 3).map((project) => (
+              {projects && projects.slice(0, 3).map((project) => (
                 <ProjectCard project={project} key={project.id} />
               ))}
             </main>
+            <footer>
+              <Button
+                text="Ver Más"
+                type="primary"
+                action={() => goTo("/contact")}
+              />
+            </footer>
           </section>
           <section className="homeInfo-start">
-              <h2>
-                Inicia tu Proyecto <br /> Hoy
-              </h2>
-              <p>¡Vamos a consturir algo increible!</p>
-              <Button text="Cotizar" type="primary" action={() => goTo('/contact')}/>
+            <h2>
+              Inicia tu Proyecto <br /> Hoy
+            </h2>
+            <p>¡Vamos a consturir algo increible!</p>
+            <Button
+              text="Cotizar"
+              type="primary"
+              action={() => goTo("/contact")}
+            />
           </section>
         </main>
       </section>
