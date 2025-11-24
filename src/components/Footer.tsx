@@ -1,6 +1,19 @@
+import { config } from "../config/config";
 import "../styles/Footer.css";
 
 export const Footer = () => {
+  const { CONTACT_EMAIL, CONTACT_PHONE, ADDRESS_NAME } = config;
+
+  const SOCIAL_MEDIA = [
+    {
+      label: "Instagram",
+      link: "https://www.instagram.com/greenkolwpc",
+    },
+    {
+      label: "TikTok",
+      link: "#",
+    },
+  ];
   const year = new Date().getFullYear();
   return (
     <footer className="footer">
@@ -14,29 +27,31 @@ export const Footer = () => {
         <article>
           <h5>Contáctanos</h5>
           <ul>
-            <li>XXXX - XXXX - Santa Marta</li>
-            <li>Email: contact@greenkol.com</li>
-            <li>Telefono: (31X) 333 3333</li>
+            <li>{ADDRESS_NAME}</li>
+            <li>Email: {CONTACT_EMAIL}</li>
+            <li>Telefono: {CONTACT_PHONE}</li>
           </ul>
         </article>
         <article>
           <h5>Síguenos</h5>
           <ul>
-            <li>
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                Instagram
-              </a>
-            </li>
-            <li>
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                TikTok
-              </a>
-            </li>
+            {SOCIAL_MEDIA &&
+              SOCIAL_MEDIA.map((social, index) => (
+                <li key={`social-${index}`}>
+                  <a
+                    href={social.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {social.label}
+                  </a>
+                </li>
+              ))}
           </ul>
         </article>
       </section>
       <section>
-        <small>© {year} GreenKol. Todos los derechos reservados.</small>
+        <small>© {year} GreenKol. Construye Verde, Construye Bien</small>
       </section>
     </footer>
   );
