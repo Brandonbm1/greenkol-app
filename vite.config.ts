@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
 import { tanstackRouter } from '@tanstack/router-plugin/vite'
+import netlify from '@netlify/vite-plugin-tanstack-start'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -10,6 +11,7 @@ export default defineConfig({
       target: 'react',
       autoCodeSplitting: true
     }),
+    netlify(),
     react()],
   resolve: {
     alias: {
