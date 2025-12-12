@@ -1,0 +1,27 @@
+.phoneContainer {
+  display: flex;
+  gap: 6px;
+  position: relative;
+  align-items: center;
+  background-color: transparent;
+  span {
+    position: absolute;
+    left: 70px;
+    color: #2a2a2a44;
+    pointer-events: none;
+  }
+}
+.phoneInput {
+  width: 100%;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  &.inValid {
+    border: 1px solid red;
+  }
+  input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+  }
+}
