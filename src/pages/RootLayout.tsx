@@ -1,6 +1,7 @@
 import { Outlet } from "@tanstack/react-router";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
+import { Toaster } from "react-hot-toast";
 
 export const RootLayout = () => {
   return (
@@ -10,6 +11,7 @@ export const RootLayout = () => {
         <Outlet />
       </main>
       <Footer />
+      <div><Toaster/></div>
     </>
   );
 };

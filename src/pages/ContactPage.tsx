@@ -8,6 +8,7 @@ import { config } from "../config/config";
 import InputPhone from "../components/InputPhone";
 import type { ICustomerApi } from "../model/interfaces/ICustomer";
 import { sendCustomerMessage } from "../services/CustomerService";
+import { toastServices } from "../services/ToastServices";
 
 export const ContactPage = () => {
   const INITIAL_FORM: IContactForm = {
@@ -50,6 +51,7 @@ export const ContactPage = () => {
     },
   };
   const [form, setForm] = useState<IContactForm>(INITIAL_FORM);
+  const { promise } = toastServices();
 
   type FormKey = keyof typeof INITIAL_FORM;
 
@@ -72,7 +74,7 @@ export const ContactPage = () => {
       setForm(validatedForm);
       return;
     }
-    const {name, email, phone, message} = getFormValues(form)
+    const { name, email, phone, message } = getFormValues(form);
 
     const newCustomer: ICustomerApi = {
       name,
@@ -80,12 +82,15 @@ export const ContactPage = () => {
       phone,
       message,
     };
-    const {created, error} = await sendCustomerMessage(newCustomer)
-    if(created) {
-      resetForm();
-      return
-    }
-    alert(error.message)
+
+    promise(
+      sendCustomerMessage(newCustomer),
+      () => {
+        resetForm();
+        return `Mensaje enviado correctamente`;
+      },
+      () => `Error al enviar el mensaje`
+    );
   };
 
   const getFormValues = (form: IContactForm) => {
