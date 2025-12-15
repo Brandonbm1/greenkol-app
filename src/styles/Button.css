@@ -6,6 +6,10 @@
     font-weight: 600;
     border: 2px solid;
     transition: background .3s ease;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    justify-content: center;
     &.primary {
         background-color: green;
         color: white;
@@ -17,10 +21,10 @@
     }
     &.secondary {
         background-color: white;
-        color: black;
+        color: var(--color-text);
         border-color: white;
         &:hover {
-            background-color: black;
+            background-color: var(--color-text);
             color: white;
         }
     }

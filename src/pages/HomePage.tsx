@@ -9,7 +9,8 @@ import { useAppNavigate } from "../hooks/useAppNavigate";
 import { useEffect, useState } from "react";
 import { getProjectsHomeScreen } from "../services/ProjectServices";
 import type { IProject } from "../model/interfaces/IProject";
-import HeroImage from '/HeroImage.png'
+import HeroImage from '/HeroImage.webp'
+import { FaArrowRight } from "react-icons/fa6";
 
 export const HomePage = () => {
   const { goTo } = useAppNavigate();
@@ -78,7 +79,8 @@ export const HomePage = () => {
               <Button
                 text="Ver Más"
                 type="primary"
-                action={() => goTo("/contact")}
+                icon={<FaArrowRight />}
+                action={() => goTo("/projects")}
               />
             </footer>
           </section>

@@ -20,6 +20,7 @@
   height: 100%;
   object-fit: cover;
   filter: brightness(0.6);
+  animation: pan 12s ease-in-out infinite alternate;
 }
 
 .hero-main {
@@ -57,4 +58,18 @@
   transition:
     background 0.3s,
     color 0.3s;
+}
+@media (max-width: 800px) {
+  .hero-image{
+    animation-duration: 25s;
+  }
+}
+
+@keyframes pan {
+  from {
+    object-position: center left;
+  }
+  to {
+    object-position: center right;
+  }
 }

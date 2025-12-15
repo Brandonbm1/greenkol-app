@@ -11,8 +11,8 @@
     transition: transform .3s ease;
     max-width: 500px;
     img {
-        height: 150px;
         object-fit: cover;
+        width: 100%;
     }
     > section {
         padding: .5rem 1rem;

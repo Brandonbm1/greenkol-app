@@ -1,4 +1,4 @@
-import HeroImage from '/HeroImage.png'
+import HeroImage from '/HeroImage.webp'
 
 export const HomeInfo = {
     heroImage: HeroImage,

@@ -1,4 +1,4 @@
-import HeroImage from "/HeroImage.png";
+import HeroImage from "/HeroImage.webp";
 import { RiLeafLine } from "react-icons/ri";
 import { Link } from "@tanstack/react-router";
 import { GoLightBulb } from "react-icons/go";

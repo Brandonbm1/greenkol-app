@@ -1,5 +1,5 @@
 import { useAppNavigate } from "../hooks/useAppNavigate";
-import HeroImage from "/HeroImage.png";
+import HeroImage from "/HeroImage.webp";
 
 import "../styles/ProductCategories.css";
 import type { ICategorie } from "../model/interfaces/ICategorie";

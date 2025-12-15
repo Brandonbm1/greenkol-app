@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import GreenKolLogo from "/greenKolLogo.png";
+import GreenKolLogo from "/greenKolLogo.webp";
 import "@styles/Navbar.css";
 
 export const Navbar = () => {
@@ -36,6 +36,13 @@ export const Navbar = () => {
           onClick={() => setMenuOpen(false)}
         >
           Productos
+        </Link>
+        <Link
+          to="/projects"
+          activeProps={{ className: "active-link" }}
+          onClick={() => setMenuOpen(false)}
+        >
+          Proyectos
         </Link>
         <Link
           to="/about"
