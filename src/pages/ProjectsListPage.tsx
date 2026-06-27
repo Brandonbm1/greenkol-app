@@ -31,7 +31,7 @@ export const ProjectsListPage = () => {
           data.docs.map((project) => (
             <section key={project.id}>
               <aside>
-                <Link to={`/projects/${project.id}`}>
+                <Link to="/projects/$id" params={{ id: project.id }}>
                   <Image
                     url={project.images[0].image.url}
                     alt={project.images[0].alt || ""}
@@ -44,7 +44,7 @@ export const ProjectsListPage = () => {
                   Finalizado: {moment(project.releasedDate).format("MMM YYYY")}
                 </small>
                 <main>
-                  <Link to={`/projects/${project.id}`}>
+                  <Link to="/projects/$id" params={{ id: project.id }}>
                     <h4>{project.name}</h4>
                   </Link>
                   <p>{project.description}</p>
