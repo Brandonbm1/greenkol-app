@@ -13,6 +13,6 @@ export const getProductsByCategory = async (categorieSlug: string, search: strin
   return { response, meta: { ...rest } };
 };
 
-export const getProduct = async (id: string) => {
+export const getProduct = async (id: string): Promise<IProduct> => {
   return await GET(`api/products/${id}`);
 };

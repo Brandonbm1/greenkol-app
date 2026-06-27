@@ -17,6 +17,34 @@
         }
     }
 }
+.product-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-info-image {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .product-info {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 3rem;
+    }
+
+    .product-info-image {
+        flex: 0 0 55%;
+        position: sticky;
+        top: 1rem;
+    }
+
+    .product-info-details {
+        flex: 1;
+        padding-top: 0 !important;
+    }
+}
+
 .product-info-details {
     display: flex;
     flex-direction: column;
