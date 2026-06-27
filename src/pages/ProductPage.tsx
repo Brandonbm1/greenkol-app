@@ -1,9 +1,10 @@
 import { Link, useParams } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
-import type { IProduct } from "../model/interfaces/IProduct";
+import type { IProduct, LexicalState } from "../model/interfaces/IProduct";
 import { IoArrowBack } from "react-icons/io5";
 import { getProduct } from "../services/ProductServices";
 import "../styles/ProductPage.css";
+import { LexicalViewer } from "../components/LexicalViewer";
 import { ImageCarrousel } from "../components/ImageCarrousel";
 import { ImagesOverlay } from "../components/ImagesOverlay";
 import { MdOutlineWbSunny, MdRecycling } from "react-icons/md";
@@ -25,11 +26,12 @@ export const ProductPage = () => {
   if (!product) {
     return;
   }
+  const goBackLink = `/products/${product.category.slug}`
 
   return (
     <main className="product-detail">
       <header className="product-header">
-        <Link to={"/products"}>
+        <Link to={goBackLink}>
           <IoArrowBack size={24} />
         </Link>
         <p>{product.name}</p>
@@ -113,7 +115,7 @@ const ProductDetails = ({ product }: { product: IProduct }) => {
   const VALID_SECTIONS: {
     [key: string]: {
       label: string;
-      content: string | typeof product.specifications;
+      content: LexicalState | typeof product.specifications;
     };
   } = {
     details: {
@@ -126,6 +128,8 @@ const ProductDetails = ({ product }: { product: IProduct }) => {
     },
   };
   const [activeSection, setActiveSection] = useState(VALID_SECTIONS["details"]);
+  const isLexical = (c: typeof activeSection.content): c is LexicalState =>
+    "root" in c;
   return (
     <section className="product-deatils">
       <header>
@@ -140,7 +144,9 @@ const ProductDetails = ({ product }: { product: IProduct }) => {
         ))}
       </header>
       <main>
-        {activeSection.label === VALID_SECTIONS['specifications'].label && typeof activeSection.content !== 'string' ? (
+        {isLexical(activeSection.content) ? (
+          <LexicalViewer content={activeSection.content} />
+        ) : (
           <section>
             <aside className="labels">
               <span>Alto:</span>
@@ -155,8 +161,6 @@ const ProductDetails = ({ product }: { product: IProduct }) => {
               <span>{activeSection.content.weight}kg</span>
             </aside>
           </section>
-        ) : (
-          <p>{typeof activeSection.content === 'string' && activeSection.content}</p>
         )}
       </main>
     </section>

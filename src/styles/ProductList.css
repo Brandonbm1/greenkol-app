@@ -64,8 +64,6 @@
 
 /* ---------- MASONRY LAYOUT ---------- */
 .productListContainer {
-  /* column-count: 2; */
-  /* column-gap: 1.5rem; */
   display: flex;
   flex-wrap: wrap-reverse;
   justify-content: space-between;
@@ -78,7 +76,7 @@
   display: inline-block;
   width: 100%;
   /* max-width: 600px; */
-  flex: 1 0 400px;
+  flex: 1 0 270px;
   margin-bottom: 1.5rem;
   overflow: hidden;
   background-color: var(--color-surface);
@@ -93,12 +91,43 @@
 }
 
 /* ---------- PRODUCT IMAGE ---------- */
-.product img {
+.product .img-wrapper {
+  position: relative;
   width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
+  aspect-ratio: 4 / 3;
   border-radius: 12px;
+  overflow: hidden;
+}
+
+.product .img-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #ececec 25%, #d8d8d8 50%, #ececec 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.4s ease-in-out infinite;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.product .img-wrapper--loaded::before {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.product .img-wrapper img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 2;
+}
+
+@keyframes skeleton-shimmer {
+  from { background-position: 200% 0; }
+  to   { background-position: -200% 0; }
 }
 
 /* ---------- TAGS ---------- */
