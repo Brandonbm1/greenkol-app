@@ -26,7 +26,7 @@ export const ProductPage = () => {
   if (!product) {
     return;
   }
-  const goBackLink = `/products/${product.category.slug}`
+  const goBackLink = `/products/${product.category.slug}`;
 
   return (
     <main className="product-detail">
@@ -143,26 +143,28 @@ const ProductDetails = ({ product }: { product: IProduct }) => {
           </button>
         ))}
       </header>
-      <main>
-        {isLexical(activeSection.content) ? (
-          <LexicalViewer content={activeSection.content} />
-        ) : (
-          <section>
-            <aside className="labels">
-              <span>Alto:</span>
-              <span>Ancho:</span>
-              <span>Profundidad:</span>
-              <span>Peso:</span>
-            </aside>
-            <aside className="values">
-              <span>{activeSection.content.dimentions.y}cm</span>
-              <span>{activeSection.content.dimentions.x}cm</span>
-              <span>{activeSection.content.dimentions.z}cm</span>
-              <span>{activeSection.content.weight}kg</span>
-            </aside>
-          </section>
-        )}
-      </main>
+      {activeSection.content && (
+        <main>
+          {isLexical(activeSection.content) ? (
+            <LexicalViewer content={activeSection.content} />
+          ) : (
+            <section>
+              <aside className="labels">
+                <span>Alto:</span>
+                <span>Ancho:</span>
+                <span>Profundidad:</span>
+                <span>Peso:</span>
+              </aside>
+              <aside className="values">
+                <span>{activeSection.content.dimentions.y}cm</span>
+                <span>{activeSection.content.dimentions.x}cm</span>
+                <span>{activeSection.content.dimentions.z}cm</span>
+                <span>{activeSection.content.weight}kg</span>
+              </aside>
+            </section>
+          )}
+        </main>
+      )}
     </section>
   );
 };
