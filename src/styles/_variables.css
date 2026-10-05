@@ -1,10 +1,51 @@
 :root {
-    --color-primary: #30854E;
-    --color-background: #F2F0E7;
-    --color-text: #5F6A70;
-    --color-footer: #E5E7EB;
-    --muted-text: #cccccc6a;
-    --card-border: 1px solid #cccccc6a;
-    --color-primary-50: #2f834d80;
-    --color-grey-text: #2c212171;
+    /* Brand */
+    --green-900: #0d3b22;
+    --green-800: #0a5a2e;
+    --green-700: #08703a;
+    --green-600: #0f7d41;
+    --green-500: #2e9e4f;
+    --green-100: #dcefdc;
+    --green-50: #eef6ec;
+
+    /* Surfaces */
+    --surface: #fafbf7;
+    --surface-alt: #f0f6ee;
+    --surface-card: #ffffff;
+
+    /* Text */
+    --ink: #10231a;
+    --ink-soft: #46554c;
+    --ink-muted: #6b776f;
+
+    /* Lines */
+    --line: #e2e8df;
+    --line-strong: #cfd8cb;
+
+    /* Radius & shadows */
+    --radius-sm: 0.5rem;
+    --radius-md: 0.875rem;
+    --radius-lg: 1.25rem;
+    --radius-pill: 999px;
+    --shadow-card: 0 1px 2px rgba(16, 35, 26, 0.04), 0 4px 16px rgba(16, 35, 26, 0.05);
+    --shadow-hover: 0 2px 6px rgba(16, 35, 26, 0.06), 0 14px 32px rgba(16, 35, 26, 0.1);
+
+    /* Layout */
+    --container: 1232px;
+    --gutter: 1.25rem;
+    --header-h: 68px;
+
+    /* Typography */
+    --font-display: "Bricolage Grotesque", "DM Sans", system-ui, sans-serif;
+    --font-body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+    /* Legacy aliases (used by ImagesOverlay, Render, Spinner) */
+    --color-primary: var(--green-700);
+    --color-background: var(--surface);
+    --color-text: var(--ink-soft);
+    --color-footer: var(--green-700);
+    --muted-text: var(--line);
+    --card-border: 1px solid var(--line);
+    --color-primary-50: rgba(8, 112, 58, 0.5);
+    --color-grey-text: var(--ink-muted);
 }

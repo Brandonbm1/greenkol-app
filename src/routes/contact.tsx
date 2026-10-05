@@ -1,6 +1,8 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { ContactPage } from '../pages/ContactPage'
+import { createFileRoute, redirect } from '@tanstack/react-router'
 
+// Legacy page, now a section of the landing
 export const Route = createFileRoute('/contact')({
-  component: ContactPage,
+  beforeLoad: () => {
+    throw redirect({ to: '/', hash: 'contacto', replace: true })
+  },
 })
