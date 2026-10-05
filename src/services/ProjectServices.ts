@@ -2,10 +2,9 @@ import { GET } from "../hooks/useFetch";
 import type { PaginatedResponse } from "../hooks/useGetData";
 import type { IProject } from "../model/interfaces/IProject";
 
-export const getProjectsHomeScreen = async () => {
-    const {docs, ...rest} = await GET<PaginatedResponse<IProject>>(`api/projects/important`)
-    // console.log({docs})
+export const getProjects = async (limit = 30) => {
+    const { docs, ...rest } = await GET<PaginatedResponse<IProject>>(`api/projects?limit=${limit}`)
     const response: IProject[] = docs
-    // console.log({response})
-    return {response, meta: { ...rest }}
+    return { response, meta: { ...rest } }
 }
+

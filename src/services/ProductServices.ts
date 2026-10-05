@@ -2,8 +2,8 @@ import { GET } from "../hooks/useFetch";
 import type { PaginatedResponse } from "../hooks/useGetData";
 import type { IProduct } from "../model/interfaces/IProduct";
 
-export const getProducts = async () => {
-  const { docs, ...rest } = await GET<PaginatedResponse<IProduct>>(`api/products`);
+export const getProducts = async (limit = 60) => {
+  const { docs, ...rest } = await GET<PaginatedResponse<IProduct>>(`api/products?limit=${limit}`);
   const response: IProduct[] = docs;
   return { response, meta: { ...rest } };
 };

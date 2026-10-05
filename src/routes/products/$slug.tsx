@@ -1,10 +1,8 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { ProductListPage } from '../../pages/ProductsListPage'
-import * as z from "zod"
+import { createFileRoute, redirect } from '@tanstack/react-router'
 
+// Legacy page, now a section of the landing
 export const Route = createFileRoute('/products/$slug')({
-  params: z.object({
-    slug: z.string().min(1)
-  }),
-  component: ProductListPage,
+  beforeLoad: () => {
+    throw redirect({ to: '/', hash: 'productos', replace: true })
+  },
 })

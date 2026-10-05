@@ -1,41 +1,54 @@
 import { useState } from "react";
-import { useAppNavigate } from "../hooks/useAppNavigate";
+import { Link } from "@tanstack/react-router";
 import type { IProduct } from "../model/interfaces/IProduct";
+import { getProductCover, getProductTagline } from "../utils/product";
 import { Image } from "./Image";
+import "../styles/ProductCard.css";
 
 export const ProductCard = ({ product }: { product: IProduct }) => {
-  const { goTo } = useAppNavigate();
   const [loaded, setLoaded] = useState(false);
-
-  const handleClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const url = `/products/details/${product.id}`;
-    if (!document.startViewTransition) {
-      return goTo(url);
-    }
-    document.startViewTransition(() => {
-      window.location.href = url;
-    });
-  };
+  const tagline = getProductTagline(product);
 
   return (
-    <button onClick={handleClick} className="product">
-      <div className={`img-wrapper${loaded ? " img-wrapper--loaded" : ""}`}>
+    <article className="product-card card">
+      <Link
+        to="/products/details/$id"
+        params={{ id: product.id }}
+        className={`product-card-media ${loaded ? "is-loaded" : ""}`}
+        aria-label={`Ver detalles de ${product.name}`}
+      >
         <Image
-          url={`${product.images[0].image.url}`}
-          alt={`mainImageFor-${product.name}`}
+          url={getProductCover(product)}
+          alt={product.name}
           viewTransitionName={`product-image-${product.id}`}
           onLoad={() => setLoaded(true)}
         />
+        {product.category?.title && <span className="badge">{product.category.title}</span>}
+      </Link>
+
+      <div className="product-card-body">
+        <h3>{product.name}</h3>
+        {tagline && <p className="product-card-tagline">{tagline}</p>}
+        <p className="product-card-description">{product.description}</p>
+
+        <div className="product-card-actions">
+          <Link
+            to="/products/details/$id"
+            params={{ id: product.id }}
+            className="btn btn--primary btn--sm"
+          >
+            Ver detalles
+          </Link>
+          <Link
+            to="/"
+            hash="contacto"
+            search={{ producto: product.name }}
+            className="btn btn--outline btn--sm"
+          >
+            Cotizar
+          </Link>
+        </div>
       </div>
-      <p>{product.name}</p>
-      <div className="tags">
-        {product.tags &&
-          product.tags.map(({ tag, id }) => {
-            if (!tag) return;
-            return <span key={`tag-${id}`}>{tag}</span>;
-          })}
-      </div>
-    </button>
+    </article>
   );
 };
