@@ -3,6 +3,7 @@ import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary";
 import { ListNode, ListItemNode } from "@lexical/list";
+import { HeadingNode, QuoteNode } from "@lexical/rich-text";
 import type { LexicalState } from "../model/interfaces/IProduct";
 
 interface LexicalViewerProps {
@@ -15,7 +16,7 @@ export const LexicalViewer = ({ content, className }: LexicalViewerProps) => {
     namespace: "lexical-viewer",
     editable: false,
     editorState: JSON.stringify(content),
-    nodes: [ListNode, ListItemNode],
+    nodes: [ListNode, ListItemNode, HeadingNode, QuoteNode],
     onError: (error: Error) => console.error(error),
     theme: {
       text: {

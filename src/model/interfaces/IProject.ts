@@ -3,6 +3,9 @@ import type { IImage, IRender } from "./IImage";
 export interface IProject {
   id: string;
   name: string;
+  /** Optional CMS fields: rendered only when present */
+  category?: string;
+  location?: string;
   images: IImage[];
   description: string;
   render: IRender;
